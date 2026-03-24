@@ -14,7 +14,10 @@ function wait(duration: number) {
 }
 
 function isWithinDateRange(orderDate: string, dateFrom: string, dateTo: string) {
-  return orderDate >= dateFrom && orderDate <= dateTo
+  const matchesStart = !dateFrom || orderDate >= dateFrom
+  const matchesEnd = !dateTo || orderDate <= dateTo
+
+  return matchesStart && matchesEnd
 }
 
 function buildSummary(items: OrderRecord[]): ReportSummary {
@@ -53,10 +56,10 @@ function buildChartData(items: OrderRecord[]): ChartDataPoint[] {
 export async function fetchReports(
   filters: ReportFilters,
 ): Promise<ReportsResponse> {
-  await wait(700)
+  await wait(1500)
 
   if (filters.category === 'Sports' && filters.dateFrom === '2026-02-01') {
-    throw new Error('資料服務暫時忙碌，請調整條件或稍後再試。')
+    throw new Error('The data service is temporarily busy. Please adjust the filters or try again later.')
   }
 
   const filtered = mockOrders.filter((item) => {

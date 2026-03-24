@@ -3,7 +3,7 @@ import type { NavigationItem } from '../types/navigation'
 export const navigationItems: NavigationItem[] = [
   {
     label: 'Question One： Login Form',
-    description: '驗證流程、狀態反饋與 401 攔截',
+    description: 'Validation Flow, State Feedback, and 401 Interception',
     to: '/login',
   },
   {

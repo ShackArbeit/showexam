@@ -69,12 +69,12 @@ export function Sidebar() {
           ))}
         </nav>
 
-        <div className="panel-surface mt-auto hidden bg-white/10 p-4 text-sm text-white/76 lg:block">
+        {/* <div className="panel-surface mt-auto hidden bg-white/10 p-4 text-sm text-white/76 lg:block">
           <p className="font-medium text-white">Current Scope</p>
           <p className="mt-2 leading-6 text-white/64">
             已完成 Router、登入流程、報表頁、狀態回饋與資料拆層，這一輪主要整理質感與一致性。
           </p>
-        </div>
+        </div> */}
       </div>
     </aside>
   )

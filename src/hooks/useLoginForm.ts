@@ -21,13 +21,13 @@ type FieldName = keyof LoginFormValues
 
 function validateEmail(email: string) {
   if (!email.trim()) {
-    return '請輸入 Email。'
+    return 'Please type email'
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
   if (!emailPattern.test(email.trim())) {
-    return '請輸入有效的 Email 格式。'
+    return 'Please enter a valid email address.'
   }
 
   return ''
@@ -35,11 +35,11 @@ function validateEmail(email: string) {
 
 function validatePassword(password: string) {
   if (!password) {
-    return '請輸入密碼。'
+    return 'Please type password'
   }
 
   if (password.length < 6) {
-    return '密碼至少需要 6 碼。'
+    return 'At least 6 characters'
   }
 
   return ''
@@ -214,7 +214,7 @@ export function useLoginForm() {
     setSession(null)
     setSuccessMessage(null)
     setApiError(null)
-    setSessionNotice('登入資訊已清除，請重新登入。')
+    setSessionNotice('Login session cleared. Please sign in again !!')
   }
 
   const canSubmit =

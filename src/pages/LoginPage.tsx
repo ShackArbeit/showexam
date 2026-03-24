@@ -137,17 +137,17 @@ export function LoginPage() {
                   </div>
                 </div>
 
-                <div className="mt-auto hidden pt-8 lg:block">
-                  <div className="rounded-[26px] border border-white/10 bg-white/6 p-5">
-                    <p className="text-sm font-medium text-white">互動重點</p>
-                    <ul className="mt-4 space-y-3 text-sm leading-6 text-white/68">
-                      <li>欄位 blur 後才顯示錯誤訊息</li>
-                      <li>送出期間按鈕會 disabled 並顯示 loading</li>
-                      <li>登入成功後即時顯示 session 狀態</li>
-                      <li>401 會清除既有 token</li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="mt-auto hidden pt-8 lg:block">
+  <div className="rounded-[26px] border border-white/10 bg-white/6 p-5">
+    <p className="text-sm font-medium text-white">Interaction Highlights</p>
+    <ul className="mt-4 space-y-3 text-sm leading-6 text-white/68">
+      <li>Error messages display only after field blur</li>
+      <li>Buttons are disabled with a loading state during submission</li>
+      <li>Session status updates instantly upon successful login</li>
+      <li>401 responses will clear existing tokens</li>
+    </ul>
+  </div>
+</div>
               </div>
             </div>
 
@@ -179,7 +179,7 @@ export function LoginPage() {
                 >
                   <Field
                     id="email"
-                    label="帳號 Email"
+                    label="Account Email"
                     type="email"
                     value={values.email}
                     placeholder="name@company.com"
@@ -191,10 +191,10 @@ export function LoginPage() {
 
                   <Field
                     id="password"
-                    label="密碼"
+                    label="Password"
                     type={passwordVisible ? 'text' : 'password'}
                     value={values.password}
-                    placeholder="至少 6 碼"
+                    placeholder="At least 6 characters"
                     error={passwordError}
                     disabled={isSubmitting}
                     onChange={(value) => handleChange('password', value)}
@@ -223,9 +223,9 @@ export function LoginPage() {
                       )}
                     >
                       {isSubmitting ? (
-                        <LoadingSpinner className="text-white" label="登入中..." />
+                        <LoadingSpinner className="text-white" label="Login..." />
                       ) : (
-                        '登入並驗證'
+                        'Login & Authenticate'
                       )}
                     </button>
                   </div>
@@ -250,7 +250,7 @@ export function LoginPage() {
                         onClick={handleLogout}
                         className="rounded-full border border-mist-200 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-700 transition hover:border-mist-300 hover:bg-white"
                       >
-                        登出
+                        Logout
                       </button>
                     </div>
                     <div className="mt-4 rounded-[20px] border border-white/70 bg-white/80 p-4">
@@ -264,8 +264,8 @@ export function LoginPage() {
                   </div>
                 ) : (
                   <EmptyState
-                    title="尚未建立登入 session"
-                    description="完成登入後，這裡會顯示目前使用者資訊與 access token，方便你確認整體流程是否正常。"
+                    title="Session not established"
+                    description="Once signed in, the current user info and access token will be displayed here for you to verify the authentication flow."
                   />
                 )}
               </div>

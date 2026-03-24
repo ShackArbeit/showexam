@@ -13,13 +13,10 @@ export type OrderStatus =
   | 'Refunded'
   | 'Cancelled'
 
-export type DatePreset = '7d' | '30d' | '90d' | 'custom'
-
 export type ReportFilters = {
   dateFrom: string
   dateTo: string
   category: ReportCategory
-  preset: DatePreset
   page: number
   pageSize: number
 }
