@@ -38,8 +38,8 @@ export function ReportsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Prompt 4"
-        title="題目二：數據統計報表"
+        // eyebrow="Prompt 4"
+        title="Question Two : Data Analytics Report"
         description="統一報表頁的視覺層次、篩選區塊、圖表卡片與表格細節，讓資料查詢更像正式上線的電商後台。"
         actions={
           <div className="glass-outline rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-700">

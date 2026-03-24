@@ -93,6 +93,34 @@ export function useLoginForm() {
     setSuccessMessage('已從 localStorage 恢復登入狀態。')
   }, [])
 
+  useEffect(() => {
+    if (!successMessage) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setSuccessMessage(null)
+    }, 3000)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [successMessage])
+
+  useEffect(() => {
+    if (!sessionNotice) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setSessionNotice(null)
+    }, 3000)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [sessionNotice])
+
   function handleChange(name: FieldName, value: string) {
     setValues((current) => ({
       ...current,
@@ -165,6 +193,13 @@ export function useLoginForm() {
       setSession(null)
       setApiError(apiErrorResponse.message)
       setSuccessMessage(null)
+      setValues(defaultValues)
+      setTouched({
+        email: false,
+        password: false,
+      })
+      setErrors({})
+      setPasswordVisible(false)
 
       if (apiErrorResponse.status === 401) {
         setSessionNotice('偵測到 401 未授權，系統已自動清除 token。')

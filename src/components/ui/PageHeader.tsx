@@ -1,14 +1,14 @@
 import type { ReactNode } from 'react'
 
 type PageHeaderProps = {
-  eyebrow: string
+  // eyebrow: string
   title: string
   description: string
   actions?: ReactNode
 }
 
 export function PageHeader({
-  eyebrow,
+  // eyebrow,
   title,
   description,
   actions,
@@ -19,9 +19,9 @@ export function PageHeader({
       <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,_transparent,_rgba(31,138,133,0.45),_transparent)]" />
       <div className="relative flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-teal-600">
+          {/* <p className="text-xs font-semibold uppercase tracking-[0.28em] text-teal-600">
             {eyebrow}
-          </p>
+          </p> */}
           <div className="space-y-2">
             <h1 className="font-display text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl">
               {title}

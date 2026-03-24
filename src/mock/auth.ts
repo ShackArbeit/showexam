@@ -1,8 +1,8 @@
 import type { LoginRequest, LoginResponse } from '../types/auth'
 
 export const mockLoginAccount = {
-  email: 'demo@showexam.dev',
-  password: 'Codex123',
+  email: 'demo@gmail.com',
+  password: 'wang8119',
 }
 
 const mockUser = {
@@ -12,7 +12,7 @@ const mockUser = {
   role: 'Admin',
 } as const
 
-const NETWORK_DELAY_MS = 900
+const NETWORK_DELAY_MS = 2000
 
 function wait(duration: number) {
   return new Promise((resolve) => {

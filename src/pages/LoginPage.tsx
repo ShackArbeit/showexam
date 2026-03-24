@@ -88,41 +88,40 @@ export function LoginPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Prompt 4"
-        title="題目一：登入表單"
-        description="調整登入頁的層次、留白與狀態訊息，讓互動更清楚，視覺也更接近正式交付的管理後台。"
+        title="Question One : Login Form"
+        description="Build a login page featuring frontend validation, mock API integration, and session state display, with a focus on intuitive user feedback"
         actions={
           <div className="glass-outline rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-700">
-            Auth Flow Ready
+            Frontend Validation Demo
           </div>
         }
       />
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_380px]">
+      <div className="grid gap-6">
         <Panel className="overflow-hidden p-0">
           <div className="grid lg:grid-cols-[0.92fr_1.08fr]">
             <div className="bg-[linear-gradient(160deg,_rgba(16,32,51,0.98),_rgba(39,71,107,0.92))] px-6 py-7 text-white sm:px-8 sm:py-8">
               <div className="flex h-full flex-col">
                 <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-2 text-xs uppercase tracking-[0.2em] text-white/72">
-                  Secure Access
+                    SECURE ACCESS
                 </div>
                 <div className="mt-6 space-y-4">
                   <h2 className="font-display text-3xl font-semibold tracking-tight">
-                    登入控制台
+                     Login Flow Demo
                   </h2>
                   <p className="max-w-md text-sm leading-7 text-white/72">
-                    表單會先做前端驗證，再模擬呼叫
-                    <code className="mx-1 rounded bg-white/10 px-2 py-1 text-xs text-white">
-                      /api/login
-                    </code>
-                    ，成功後將 accessToken 寫入 localStorage。
-                  </p>
+                      This page mocks a call to 
+                        <code className="mx-1 rounded bg-white/10 px-2 py-1 text-xs text-white">
+                          /api/login
+                        </code>
+                       . Upon success, the access token persists to localStorage.
+                </p>
                 </div>
 
                 <div className="mt-8 grid gap-4">
                   <div className="rounded-[24px] border border-white/10 bg-white/8 p-5">
                     <p className="text-xs uppercase tracking-[0.18em] text-white/50">
-                      測試帳號
+                      Demo Account
                     </p>
                     <p className="mt-3 text-sm font-medium">{mockLoginAccount.email}</p>
                     <p className="mt-1 text-sm text-white/72">{mockLoginAccount.password}</p>
@@ -132,20 +131,20 @@ export function LoginPage() {
                       401 Demo
                     </p>
                     <p className="mt-3 text-sm leading-6 text-white/76">
-                      使用 <span className="font-medium">unauthorized@showexam.dev</span>{' '}
-                      可模擬 API 回傳 401，系統會自動清除 token 並要求重新登入。
+                        Use <span className="font-medium text-white">unauthorized@showexam.dev</span>{' '}
+                       to trigger a 401 API response and verify that the token is cleared and re-authentication is enforced.
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-auto hidden pt-8 lg:block">
                   <div className="rounded-[26px] border border-white/10 bg-white/6 p-5">
-                    <p className="text-sm font-medium text-white">登入流程包含</p>
+                    <p className="text-sm font-medium text-white">互動重點</p>
                     <ul className="mt-4 space-y-3 text-sm leading-6 text-white/68">
-                      <li>即時欄位驗證與錯誤提示</li>
-                      <li>提交時的 disabled 與 loading 狀態</li>
-                      <li>登入成功後的 session 區塊</li>
-                      <li>401 攔截後自動清除 token</li>
+                      <li>欄位 blur 後才顯示錯誤訊息</li>
+                      <li>送出期間按鈕會 disabled 並顯示 loading</li>
+                      <li>登入成功後即時顯示 session 狀態</li>
+                      <li>401 會清除既有 token</li>
                     </ul>
                   </div>
                 </div>
@@ -155,16 +154,17 @@ export function LoginPage() {
             <div className="bg-[linear-gradient(180deg,_rgba(255,255,255,0.96),_rgba(244,247,251,0.92))] px-6 py-7 sm:px-8 sm:py-8">
               <div className="mx-auto flex max-w-lg flex-col gap-6">
                 <div className="space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-teal-600">
-                    Account Sign In
-                  </p>
-                  <h3 className="font-display text-3xl font-semibold tracking-tight text-ink-950">
-                    歡迎回來
-                  </h3>
-                  <p className="text-sm leading-7 text-ink-700">
-                    請輸入 Email 與密碼。驗證會在 blur 後顯示，送出時會避免重複提交。
-                  </p>
-                </div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-teal-600">
+                Account Sign In
+              </p>
+              <h3 className="font-display text-3xl font-semibold tracking-tight text-ink-950">
+                Sign in to your account
+              </h3>
+          <p className="text-sm leading-7 text-ink-700">
+            Please enter your email and password. Fields will display validation results on blur, 
+            and clear status feedback will be provided during submission.
+          </p>
+      </div>
 
                 {sessionNotice ? <Notice variant="warning">{sessionNotice}</Notice> : null}
                 {apiError ? <Notice variant="error">{apiError}</Notice> : null}
@@ -225,7 +225,7 @@ export function LoginPage() {
                       {isSubmitting ? (
                         <LoadingSpinner className="text-white" label="登入中..." />
                       ) : (
-                        '登入系統'
+                        '登入並驗證'
                       )}
                     </button>
                   </div>
@@ -250,7 +250,7 @@ export function LoginPage() {
                         onClick={handleLogout}
                         className="rounded-full border border-mist-200 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-700 transition hover:border-mist-300 hover:bg-white"
                       >
-                        清除登入
+                        登出
                       </button>
                     </div>
                     <div className="mt-4 rounded-[20px] border border-white/70 bg-white/80 p-4">
@@ -264,36 +264,11 @@ export function LoginPage() {
                   </div>
                 ) : (
                   <EmptyState
-                    title="尚未建立登入狀態"
-                    description="使用左側提供的測試帳號登入後，這裡會顯示成功狀態、使用者資訊與 accessToken。"
+                    title="尚未建立登入 session"
+                    description="完成登入後，這裡會顯示目前使用者資訊與 access token，方便你確認整體流程是否正常。"
                   />
                 )}
               </div>
-            </div>
-          </div>
-        </Panel>
-
-        <Panel
-          eyebrow="Validation Rules"
-          title="表單與 API 規則"
-          description="把驗證、mock API 與 session 行為拆到 JSX 外，讓頁面維持清楚結構，也方便後續替換成真實 auth 流程。"
-        >
-          <div className="space-y-4">
-            <div className="rounded-[22px] border border-mist-200 bg-mist-50/80 p-5">
-              <p className="text-sm font-semibold text-ink-950">前端驗證</p>
-              <ul className="mt-3 space-y-2 text-sm leading-6 text-ink-700">
-                <li>Email 必須符合有效格式</li>
-                <li>密碼至少需要 6 碼</li>
-                <li>欄位 blur 後顯示錯誤訊息</li>
-              </ul>
-            </div>
-            <div className="rounded-[22px] border border-mist-200 bg-mist-50/80 p-5">
-              <p className="text-sm font-semibold text-ink-950">提交互動</p>
-              <ul className="mt-3 space-y-2 text-sm leading-6 text-ink-700">
-                <li>送出中按鈕 disabled 並顯示 loading</li>
-                <li>成功後寫入 localStorage 並展示 session 卡片</li>
-                <li>401 時自動清除 token 並提示重新登入</li>
-              </ul>
             </div>
           </div>
         </Panel>
