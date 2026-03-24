@@ -1,7 +1,7 @@
 import type { LoginResponse } from '../types/auth'
 
-const ACCESS_TOKEN_KEY = 'showexam.accessToken'
-const USER_KEY = 'showexam.user'
+const ACCESS_TOKEN_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFsZXggS29obWFubiIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNzQyODgzOTgyLCJyb2xlcyI6WyJhZG1pbiIsImV4cGVydCJdLCJzY29wZSI6InJlYWQ6c3lzdGVtIHdyaXRlOmFwaSJ9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+const USER_KEY = "auth_provider_v1_user_claims";
 
 export function saveAuthSession(session: LoginResponse) {
   localStorage.setItem(ACCESS_TOKEN_KEY, session.accessToken)

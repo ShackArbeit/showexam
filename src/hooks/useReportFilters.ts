@@ -35,10 +35,13 @@ export function useReportFilters() {
 
   const activeRangeLabel = useMemo(() => {
     if (!filters.dateFrom && !filters.dateTo) {
-      return '尚未選擇日期'
+      return 'No date range selected'
     }
 
-    return `${filters.dateFrom || '未選擇'} → ${filters.dateTo || '未選擇'}`
+    const fromLabel = filters.dateFrom || 'Not selected'
+    const toLabel = filters.dateTo || 'Not selected'
+
+    return `${fromLabel} → ${toLabel}`
   }, [filters.dateFrom, filters.dateTo])
 
   return {

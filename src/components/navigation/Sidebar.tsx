@@ -19,10 +19,6 @@ export function Sidebar() {
             <h1 className="font-display text-2xl font-semibold tracking-tight">
               ShowExam Dashboard
             </h1>
-            <p className="text-sm leading-6 text-white/66">
-              以作品集等級整理的前端測驗專案，包含登入流程、報表頁與可擴充的
-              dashboard 架構。
-            </p>
           </div>
         </div>
 

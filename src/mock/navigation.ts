@@ -8,7 +8,7 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     label: 'Question Two：Data Analytics Report',
-    description: '圖表、表格、篩選器與分頁骨架',
+    description: 'Charts, Tables, Filters, and Pagination Skeletons',
     to: '/reports',
   },
 ]
